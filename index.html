@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+	<head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/bootstrap.min.css" >
+        <style type="text/css">
+        	.left{
+        		position:fixed;
+        		top:50%;
+        		
+        	}
+        	.right{
+        		position: fixed;
+        		top:50%;
+        		
+        	}
+        		
+        </style>
+        
+ 		<title>Plugin Testing</title>
+ 		<header>
+ 		 			<div id="header" class="container-fluid"  style="background-color:darkgreen;padding :0px;text-align:center;">
+ 				<h1 class="lead" style="padding:10px;color:white;">Plugin Testing</h1>
+  			</div>
+ 		</header>
+ 	</head>
+ 	<body>
+ 		<div class="container-fluid" style="margin:0px">
+ 			<div id="slide">	
+ 				<div class="hidden" id="image" style="text-align:center;">
+ 					<img class="images" src="a.jpg"></img>
+ 					<img class="images" src="b.jpg"></img>
+ 					<img class="images" src="c.jpg"></img>
+ 					<img class="images" src="d.jpg"></img>
+ 					<img class="images" src="e.jpg"></img>
+ 				</div>	
+ 			</div>
+ 		</div>
+ 	
+
+ 		<script type="text/javascript">
+ 			var z;
+ 			var a =new Array();
+ 			 	
+ 			console.log(z);	
+ 			for(var i=0;i<5;i++){
+ 				var y = document.getElementById('image');
+ 				var z=y.getElementsByTagName('img')[i].getAttribute('src');
+ 				a[i]=z;
+ 			 	console.log("this is sparta:"+a[i]);
+ 				console.log("yaye it worked");
+ 			}
+ 			document.getElementById('slide').innerHTML = '<div class="col-md-1"><button class="left" onclick="prev()" style="text-align:center;" ><span class="glyphicon glyphicon-chevron-left" aria-hidden="true" ></span></button></div><div class="col-md-10" id="slide" style="text-align:center"><img id="image" class="img-responsive img-thumbnail" src="'+a[3]+'"></img></div><div class="col-md-1"><button onclick="next()" class="right"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button></div>';
+ 			console.log("slide worked it seems..!!");
+
+ 			function prev() {
+ 				var e;
+ 				
+ 					e = document.getElementById('image').getAttribute('src');
+ 					var i;
+ 					console.log("this is e :"+e);
+ 					for(i=0;i<5;i++){
+ 						if(a[i]==e){
+ 							var j=i;
+ 							break;
+ 						}
+ 					}
+ 					if(j==0){
+ 						j=3;
+ 					}
+ 					else{
+ 						j--;
+ 					}
+ 					console.log("this is j :"+j);
+
+ 					document.getElementById('image').src=a[j];
+
+ 					
+ 				
+ 			}
+ 			function next() {
+ 				var e;
+ 				
+ 					e = document.getElementById('image').getAttribute('src');
+ 					var i;
+ 					console.log("this is e :"+e);
+ 					for(i=0;i<5;i++){
+ 						if(a[i]==e){
+ 							var j=i;
+ 							break;
+ 						}
+ 					}
+ 					if(j==3){
+ 						j=0;
+ 					}
+ 					else{
+ 						j++;
+ 					}
+ 					console.log("this is j :"+j);
+
+ 					document.getElementById('image').src=a[j];
+
+ 					
+ 				
+ 			}
+
+
+  		</script>
+  	</body>
+
+</html>
